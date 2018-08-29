@@ -10,115 +10,6 @@ if not _G.WolfHUD then
 	WolfHUD.settings = {}
 	WolfHUD.tweak_data = {}
 
-	WolfHUD.hook_files = WolfHUD.hook_files or {
-		["lib/setups/setup"] 										= { "GameInfoManager.lua", "WaypointsManager.lua" },
-		["lib/managers/menumanager"] 								= { "PrePlanManager.lua", "MenuTweaks.lua", "ProfileMenu.lua"  },
-		["lib/managers/menumanagerdialogs"] 						= { "MenuTweaks.lua" },
-		["lib/managers/chatmanager"] 								= { "MenuTweaks.lua" },
-		["lib/managers/crimenetmanager"]							= { "MenuTweaks.lua" },
-		["lib/managers/localizationmanager"] 						= { "AdvAssault.lua" },
-		["lib/managers/experiencemanager"] 							= { "Scripts.lua" },
-		["lib/managers/moneymanager"] 								= { "Scripts.lua" },
-		["lib/managers/multiprofilemanager"]						= { "ProfileMenu.lua" },
-		["lib/managers/crimespreemanager"]							= { "TabStats.lua" },
-		["lib/managers/hudmanager"] 								= { "EnemyHealthbar.lua", "CustomWaypoints.lua" },
-		["lib/managers/hudmanagerpd2"] 								= { "CustomHUD.lua", "VanillaHUD.lua", "HUDChat.lua", "HUDList.lua", "KillCounter.lua", "DownCounter.lua", "DrivingHUD.lua", "TabStats.lua", "DamageIndicator.lua", "WaypointsManager.lua", "Interaction.lua", "Scripts.lua", "BurstFire.lua", "AdvAssault.lua" },
-		["lib/managers/statisticsmanager"] 							= { "KillCounter.lua", "TabStats.lua" },
-		["lib/managers/playermanager"] 								= { "GameInfoManager.lua", "BurstFire.lua" },
-		["lib/managers/preplanningmanager"] 						= { "PrePlanManager.lua" },
-		["lib/managers/hud/huddriving"] 							= { "DrivingHUD.lua" },
-		["lib/managers/hud/hudteammate"] 							= { "CustomHUD.lua", "VanillaHUD.lua", "KillCounter.lua", "DownCounter.lua", "BurstFire.lua" },
-		["lib/managers/hud/hudtemp"] 								= { "CustomHUD.lua" },
-		["lib/managers/hud/hudassaultcorner"] 						= { "HUDList.lua", "AdvAssault.lua" },
-		["lib/managers/hud/hudobjectives"] 							= { "EnhancedObjective.lua" },
-		["lib/managers/hud/hudheisttimer"] 							= { "EnhancedObjective.lua" },
-		["lib/managers/hud/hudchat"] 								= { "HUDChat.lua" },
-		["lib/managers/hud/newhudstatsscreen"] 						= { "TabStats.lua", "EnhancedCrewLoadout.lua" },
-		["lib/managers/hud/hudinteraction"] 						= { "Interaction.lua" },
-		["lib/managers/hud/hudsuspicion"] 							= { "NumbericSuspicion.lua" },
-		["lib/managers/hud/hudhitdirection"] 						= { "DamageIndicator.lua" },
-		["lib/managers/hud/hudwaitinglegend"] 						= { "CustomHUD.lua" },
-		["lib/managers/enemymanager"] 								= { "GameInfoManager.lua" },
-		["lib/managers/group_ai_states/groupaistatebase"] 			= { "GameInfoManager.lua", "PacifiedCivs.lua" },
-		["lib/managers/missionassetsmanager"] 						= { "BuyAllAsset.lua" },
-		["lib/managers/menu/blackmarketgui"] 						= { "MenuTweaks.lua" },
-		["lib/managers/menu/contractboxgui"]						= { "MenuTweaks.lua", "EnhancedCrewLoadout.lua" },
-		["lib/managers/menu/crimespreecontractboxgui"] 				= { "EnhancedCrewLoadout.lua" },
-		["lib/managers/menu/crimespreedetailsmenucomponent"]		= { "EnhancedCrewLoadout.lua" },
-		["lib/managers/menu/missionbriefinggui"]					= { "BuyAllAsset.lua", "EnhancedCrewLoadout.lua", "ProfileMenu.lua" },
-		["lib/managers/menu/multiprofileitemgui"]					= { "ProfileMenu.lua" },
-		["lib/managers/menu/stageendscreengui"] 					= { "MenuTweaks.lua", "TabStats.lua" },
-		["lib/managers/menu/lootdropscreengui"] 					= { "MenuTweaks.lua" },
-		["lib/managers/menu/skilltreeguinew"] 						= { "MenuTweaks.lua" },
-		["lib/managers/menu/playerinventorygui"]					= { "ProfileMenu.lua" },
-		["lib/managers/menu/renderers/menunodeskillswitchgui"] 		= { "MenuTweaks.lua", "ProfileMenu.lua"  },
-		["lib/managers/objectinteractionmanager"] 					= { "GameInfoManager.lua", "HUDList.lua", "Interaction.lua" },
-		["lib/managers/player/smokescreeneffect"] 					= { "GameInfoManager.lua" },
-		["lib/modifiers/boosts/gagemodifiermeleeinvincibility"] 	= { "GameInfoManager.lua" },
-		["lib/modifiers/boosts/gagemodifierlifesteal"] 				= { "GameInfoManager.lua" },
-		["lib/network/handlers/unitnetworkhandler"] 				= { "GameInfoManager.lua", "NetworkHandler.lua", "DownCounter.lua" },
-		["lib/units/props/timergui"] 								= { "GameInfoManager.lua" },
-		["lib/units/props/digitalgui"] 								= { "GameInfoManager.lua" },
-		["lib/units/props/drill"] 									= { "GameInfoManager.lua" },
-		["lib/units/props/securitylockgui"] 						= { "GameInfoManager.lua" },
-		["lib/units/civilians/civiliandamage"] 						= { "DamagePopup.lua", "TabStats.lua" },
-		["lib/units/enemies/cop/copdamage"] 						= { "GameInfoManager.lua", "KillCounter.lua", "DamagePopup.lua", "TabStats.lua" },
-		["lib/units/cameras/fpcameraplayerbase"] 					= { "WeaponGadgets.lua" },
-		["lib/units/equipment/ammo_bag/ammobagbase"] 				= { "GameInfoManager.lua" },
-		["lib/units/equipment/bodybags_bag/bodybagsbagbase"] 		= { "GameInfoManager.lua" },
-		["lib/units/equipment/doctor_bag/doctorbagbase"] 			= { "DownCounter.lua", "GameInfoManager.lua" },
-		["lib/units/equipment/first_aid_kit/firstaidkitbase"] 		= { "GameInfoManager.lua" },
-		["lib/units/equipment/ecm_jammer/ecmjammerbase"] 			= { "GameInfoManager.lua", "EquipmentTweaks.lua" },
-		["lib/units/equipment/grenade_crate/grenadecratebase"] 		= { "GameInfoManager.lua" },
-		["lib/units/equipment/sentry_gun/sentrygunbase"] 			= { "GameInfoManager.lua", "KillCounter.lua" },
-		["lib/units/equipment/sentry_gun/sentrygundamage"] 			= { "GameInfoManager.lua" },
-		["lib/units/interactions/interactionext"] 					= { "GameInfoManager.lua", "Interaction.lua", "EquipmentTweaks.lua" },
-		["lib/units/weapons/akimboweaponbase"] 						= { "BurstFire.lua" },
-		["lib/units/weapons/akimboshotgunbase"] 					= { "BurstFire.lua" },
-		["lib/units/weapons/sentrygunweapon"] 						= { "GameInfoManager.lua", "EquipmentTweaks.lua", "WeaponGadgets.lua" },
-		["lib/units/weapons/weapongadgetbase"]						= { "WeaponGadgets.lua" },
-		["lib/units/weapons/weaponlaser"] 							= { "WeaponGadgets.lua" },
-		["lib/units/weapons/weaponflashlight"] 						= { "WeaponGadgets.lua" },
-		["lib/units/weapons/raycastweaponbase"] 					= { "Scripts.lua", "WeaponGadgets.lua" },
-		["lib/units/weapons/newraycastweaponbase"] 					= { "WeaponGadgets.lua", "BurstFire.lua" },
-		["lib/units/weapons/npcraycastweaponbase"]					= { "WeaponGadgets.lua" },
-		["lib/units/weapons/newnpcraycastweaponbase"]				= { "WeaponGadgets.lua" },
-		["lib/units/props/securitycamera"] 							= { "GameInfoManager.lua" },
-		["lib/units/beings/player/playerdamage"] 					= { "GameInfoManager.lua", "DamageIndicator.lua" },
-		["lib/units/beings/player/playermovement"] 					= { "GameInfoManager.lua" },
-		["lib/units/beings/player/playerinventory"] 					= { "GameInfoManager.lua" },
-		["lib/units/beings/player/huskplayermovement"] 				= { "DownCounter.lua" },
-		["lib/units/beings/player/states/playercivilian"] 			= { "Interaction.lua" },
-		["lib/units/beings/player/states/playerdriving"]			= { "Interaction.lua" },
-		["lib/units/beings/player/states/playerstandard"] 			= { "GameInfoManager.lua", "EnemyHealthbar.lua", "Interaction.lua", "BurstFire.lua", "WeaponGadgets.lua" },
-		["lib/units/beings/player/states/playermaskoff"] 			= { "GameInfoManager.lua" },
-		["lib/units/beings/player/states/playerbleedout"] 			= { "DownCounter.lua" },
-		["lib/units/vehicles/vehicledamage"] 						= { "DamageIndicator.lua" },
-		["lib/units/vehicles/vehicledrivingext"] 					= { "CustomWaypoints.lua" },
-		["lib/utils/temporarypropertymanager"] 						= { "GameInfoManager.lua" },
-		["lib/player_actions/skills/playeractionbloodthirstbase"] 	= { "GameInfoManager.lua" },
-		["lib/player_actions/skills/playeractionexperthandling"] 	= { "GameInfoManager.lua" },
-		["lib/player_actions/skills/playeractionshockandawe"] 		= { "GameInfoManager.lua" },
-		["lib/player_actions/skills/playeractiondireneed"] 			= { "GameInfoManager.lua" },
-		["lib/player_actions/skills/playeractionunseenstrike"] 		= { "GameInfoManager.lua" },
-		["lib/player_actions/skills/playeractiontriggerhappy"] 		= { "GameInfoManager.lua" },
-		["lib/player_actions/skills/playeractiontagteam"] 			= { "GameInfoManager.lua" },
-		["lib/states/ingamedriving"] 								= { "DrivingHUD.lua" },
-		["lib/states/ingamearrested"]								= { "EnemyHealthbar.lua" },
-		["lib/states/ingamewaitingforplayers"] 						= { "MenuTweaks.lua" },
-		["lib/tweak_data/tweakdata"] 								= { "MenuTweaks.lua" },
-		["lib/tweak_data/guitweakdata"] 							= { "MenuTweaks.lua" },
-		["lib/tweak_data/timespeedeffecttweakdata"] 				= { "Scripts.lua" },
-		["core/lib/managers/menu/items/coremenuitemslider"] 		= { "MenuTweaks.lua" },
-		["core/lib/managers/subtitle/coresubtitlepresenter"] 		= { "EnhancedObjective.lua" },
-
-		--Utils and custom classes...
-		["lib/entry"]												= { "Utils/QuickInputMenu.lua", "Utils/LoadoutPanel.lua", "Utils/OutlinedText.lua" },
-		["lib/managers/systemmenumanager"] 							= { "Utils/InputDialog.lua" },
-		["lib/managers/dialogs/specializationdialog"] 				= { "Utils/InputDialog.lua" },
-		["lib/managers/menu/specializationboxgui"] 					= { "Utils/InputDialog.lua" },
-	}
-
 	function WolfHUD:Reset()
 		local default_lang = "english"
 		for _, filename in pairs(file.GetFiles(self.mod_path .. "/loc/")) do
@@ -909,7 +800,7 @@ if not _G.WolfHUD then
 	local menu_options = WolfHUD.options_menu_data
 
 	-- Setup and register option menus
-	Hooks:Add("MenuManagerSetupCustomMenus", "MenuManagerSetupCustomMenus_WolfHUD", function( menu_manager, nodes )
+	Hooks:Add("MenuManagerSetupCustomMenus", "MenuManagerSetupCustomMenus_WolfHUDCore", function( menu_manager, nodes )
 		local function create_menu(menu_table, parent_id)
 			for i, data in ipairs(menu_table) do
 				if data.type == "menu" then
@@ -923,7 +814,7 @@ if not _G.WolfHUD then
 	end)
 
 	--Populate options menus
-	Hooks:Add("MenuManagerPopulateCustomMenus", "MenuManagerPopulateCustomMenus_WolfHUD", function(menu_manager, nodes)
+	Hooks:Add("MenuManagerPopulateCustomMenus", "MenuManagerPopulateCustomMenus_WolfHUDCore", function(menu_manager, nodes)
 		-- Called on setting change
 		local function change_setting(setting, value)
 			if WolfHUD:getSetting(setting, nil) ~= value and WolfHUD:setSetting(setting, value) then
@@ -1308,7 +1199,7 @@ if not _G.WolfHUD then
 	end)
 
 	-- Create callbacks and finalize menus
-	Hooks:Add("MenuManagerBuildCustomMenus", "MenuManagerBuildCustomMenus_WolfHUD", function(menu_manager, nodes)
+	Hooks:Add("MenuManagerBuildCustomMenus", "MenuManagerBuildCustomMenus_WolfHUDCore", function(menu_manager, nodes)
 		local back_clbk = "wolfhud_back_clbk"
 		local focus_clbk = "wolfhud_focus_clbk"
 		local reset_clbk = "wolfhud_reset_clbk"
@@ -1411,7 +1302,7 @@ if not _G.WolfHUD then
 	end)
 
 	--Add localiszation strings
-	Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_WolfHUD", function(loc)
+	Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_WolfHUDCore", function(loc)
         local loc_path = WolfHUD.mod_path .. "loc/"
 		if file.DirectoryExists( loc_path ) then
 			loc:load_localization_file(string.format("%s/%s.json", loc_path, WolfHUD:getSetting({"LANGUAGE"}, "english")))
@@ -1440,44 +1331,23 @@ if not _G.WolfHUD then
 		end
 		loc:add_localized_strings(localized_strings)
 	end)
-end
+	
+	Hooks:Add("MenuManagerOnOpenMenu", "MenuManagerOnOpenMenu_WolfHUDCore", function(menu_manager, menu_name, position)
+		if menu_name == "menu_main" then
+			local mod = BLT and BLT.Mods:GetMod(WolfHUD.identifier or "")
 
-if MenuNodeMainGui then
-	Hooks:PostHook( MenuNodeMainGui , "_add_version_string" , "MenuNodeMainGuiPostAddVersionString_WolfHUD" , function( self )
-		if alive(self._version_string) then
-			self._version_string:set_text("Payday 2 v" .. Application:version() .. " | WolfHUD v" .. WolfHUD:getVersion())
+			if mod and not mod.supermod then
+				local title = "[WolfHUD] No SuperBLT detected!"
+				local text = "WolfHUD requires SuperBLT in order to work.\nSuperBLT is a fork of the BLT mod-loading hook for PAYDAY 2, with a number of major improvements. \nIt is fully backwards-compatable with regular BLT mods.\n\nYou can find further information and installation instructions here: \nhttps://superblt.znix.xyz"
+
+				QuickMenu:new( 
+					title, 
+					text, 
+					{
+						{ text = managers.localization:text("dialog_ok"), is_cancel_button = true }
+					}, true 
+				)
+			end
 		end
 	end)
-end
-
-if MenuItemMultiChoice then
-	Hooks:PostHook( MenuItemMultiChoice , "setup_gui" , "MenuItemMultiChoicePostSetupGui_WolfHUD" , function( self, node, row_item )
-		if self:selected_option() and self:selected_option():parameters().color and row_item.choice_text then
-			row_item.choice_text:set_blend_mode("normal")
-		end
-	end)
-end
-
-if EconomyTweakData then
-	-- Fix community market links for Real Weapon Names
-	Hooks:PostHook(EconomyTweakData, "create_weapon_skin_market_search_url" ,"WolfHUD_EconomyTweakDataPostCreateWeaponSkinMarketSearchUrl", function(self, weapon_id, cosmetic_id)
-		local cosmetic_name = tweak_data.blackmarket.weapon_skins[cosmetic_id] and managers.localization:text(tweak_data.blackmarket.weapon_skins[cosmetic_id].name_id)
-		local weapon_name = managers.localization.orig.text(managers.localization, tweak_data.weapon[weapon_id].name_id) -- bypass custom localizations
-		if cosmetic_name and weapon_name then
-			cosmetic_name = string.gsub(cosmetic_name, " ", "+")
-			weapon_name = string.gsub(weapon_name, " ", "+")
-			return string.gsub("http://steamcommunity.com/market/search?appid=218620&q=" .. cosmetic_name .. "+" .. weapon_name, "++", "+")
-		end
-		return nil
-	end)
-end
-
-if RequiredScript then
-	local requiredScript = RequiredScript:lower()
-
-	if WolfHUD.hook_files[requiredScript] then
-		for __, file in ipairs(WolfHUD.hook_files[requiredScript]) do
-			dofile( WolfHUD.mod_path .. "lua/" .. file )
-		end
-	end
 end

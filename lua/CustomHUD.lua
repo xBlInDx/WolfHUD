@@ -3421,7 +3421,7 @@ if RequiredScript == "lib/managers/hud/hudteammate" then
 	end
 
 	function PlayerInfoComponent.Equipment:set_cable_tie(icon)
-		local texture, texture_rect = tweak_data.hud_icons:get_icon_data(icon)
+		local texture, texture_rect = tweak_data.hud_icons:get_icon_data(icon, {0, 0, 32, 32})
 		self._panel:child("cable_ties"):child("icon"):set_image(texture, unpack(texture_rect))
 	end
 
@@ -3435,7 +3435,7 @@ if RequiredScript == "lib/managers/hud/hudteammate" then
 	end
 
 	function PlayerInfoComponent.Equipment:set_throwable(icon)
-		local texture, texture_rect = tweak_data.hud_icons:get_icon_data(icon)
+		local texture, texture_rect = tweak_data.hud_icons:get_icon_data(icon, {0, 0, 32, 32})
 		self._panel:child("throwables"):child("icon"):set_image(texture, unpack(texture_rect))
 	end
 
@@ -3489,7 +3489,7 @@ if RequiredScript == "lib/managers/hud/hudteammate" then
 	end
 
 	function PlayerInfoComponent.Equipment:set_deployable(icon)
-		local texture, texture_rect = tweak_data.hud_icons:get_icon_data(icon)
+		local texture, texture_rect = tweak_data.hud_icons:get_icon_data(icon, {0, 0, 32, 32})
 		self._panel:child("deployables"):child("icon"):set_image(texture, unpack(texture_rect))
 	end
 
