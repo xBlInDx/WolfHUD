@@ -14,7 +14,7 @@
 				<post :script_path="GameInfoManager.lua"/>
 				<post :script_path="WaypointsManager.lua"/>
 			</group>
-			
+
 			<post :hook_id="utils/temporarypropertymanager" :script_path="GameInfoManager.lua"/>
 
 			<group :hook_id="managers/">
@@ -28,11 +28,13 @@
 				<post :hook_id="crimespreemanager" :script_path="TabStats.lua"/>
 				<post :hook_id="missionassetsmanager" :script_path="BuyAllAsset.lua"/>
 				<post :hook_id="preplanningmanager" :script_path="PrePlanManager.lua"/>
+				<post :hook_id="platformmanager" :script_path="RichPresence.lua"/>
+				<post :hook_id="skirmishmanager" :script_path="RichPresence.lua"/>
 				<post :hook_id="enemymanager" :script_path="GameInfoManager.lua"/>
 				<post :hook_id="systemmenumanager" :script_path="Utils/InputDialog.lua"/>
 				<post :hook_id="dialogs/specializationdialog" :script_path="Utils/InputDialog.lua"/>
 				<post :hook_id="player/smokescreeneffect" :script_path="GameInfoManager.lua"/>
-				
+
 				<group :hook_id="menumanager">
 					<post :script_path="PrePlanManager.lua"/>
 					<post :script_path="MenuTweaks.lua"/>
@@ -111,7 +113,7 @@
 						<post :script_path="EnhancedCrewLoadout.lua"/>
 					</group>
 				</group>
-				
+
 				<group :hook_id="menu/">
 					<post :hook_id="blackmarketgui" :script_path="MenuTweaks.lua"/>
 					<post :hook_id="crimespreecontractboxgui" :script_path="EnhancedCrewLoadout.lua"/>
