@@ -569,7 +569,7 @@
 	"wolfhud_hudlist_passive_health_regen_compbuff_title" : "Passive Health Regeneration",
 	"wolfhud_hudlist_passive_health_regen_compbuff_desc" : "Composite Buff item, displays added value of all passive Health regeneration effects.",
 	"wolfhud_hudlist_total_dodge_chance_compbuff_title" : "Total Dodge Chance",
-	"wolfhud_hudlist_total_dodge_chance_compbuff_desc" : "Composite Buff item, displays added value of all dodge increaing skills.",
+	"wolfhud_hudlist_total_dodge_chance_compbuff_desc" : "Composite Buff item, displays added value of all dodge increasing skills.",
 	"wolfhud_hudlist_aggressive_reload_aced_buff_title" : "Aggressive Reload",
 	"wolfhud_hudlist_aggressive_reload_aced_buff_desc" : "",
 	"wolfhud_hudlist_ammo_efficiency_buff_title" : "Ammo Efficiency",
